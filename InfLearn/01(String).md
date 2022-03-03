@@ -13,4 +13,37 @@
 문자열은 영어 알파벳으로만 구성되어 있습니다.
 
 
-출력
+```java
+
+import java.util.Scanner;
+
+public class Main {
+
+    public int solution(String str, char t){
+        int answer = 0;
+
+        str = str.toUpperCase();
+        t = Character.toUpperCase(t);
+        System.out.println(str);
+
+        for(int i = 0; i < str.length(); i++){
+            if (str.charAt(i)==t){
+                answer ++;
+            }
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main(); // static에서 인스턴스 메소드를 호출하기 위함
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+
+        // next는 문자열이지만 문자 하나만 가져와야 하기에 charAt 사용, String을 인덱스로 접근
+        char c = sc.next().charAt(0);
+        System.out.println(T.solution(str,c));
+    }
+}
+
+```
