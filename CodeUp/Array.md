@@ -133,6 +133,26 @@ public class Main {
 
 ```
 
++) Arrays.sort(arr, fromIndex, toIndex) // 부분 정렬
+
+배열의 일부분만 정렬가능
+
+다음과 같이 sort()의 인자로 처음 index와 마지막 index를 전달하여 정렬할 범위를 지정
+아래 코드는 0과 4를 인자로 전달했는데, index 0에서 index 4를 포함하는 배열만 정렬하라는 의미이다
+
+```java
+
+int[] arr = {1, 26, 17, 25, 99, 44, 303};
+
+Arrays.sort(arr, 0, 4);
+
+System.out.println("Sorted arr[] : " + Arrays.toString(arr));
+
+// 결과
+// Sorted arr[] : [1, 17, 25, 26, 99, 44, 303] // 4번째까지만 정렬된 것을 볼 수 있다
+
+```
+
 
 
 
