@@ -153,14 +153,105 @@ System.out.println("Sorted arr[] : " + Arrays.toString(arr));
 
 ```
 
+<br/>
+
+---
+
+<br/>
+
+### 1420
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/220157788-22737f81-5c8d-4ac8-94b4-4a8347fbb5a1.png)
+
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        String[] name = new String[n];
+        int[] score = new int[n];
+        String[] plus = new String[n];
+
+        for (int i = 0; i < score.length; i++){
+            name[i] = sc.next();
+            score[i] = sc.nextInt();
+            plus[i] = name[i] + " " + score[i];
+        }
+
+        int temp = 0;
+
+        for (int i = 0; i < score.length; i++) {
+            for (int j = 0; j < score.length; j++) {
+                if(score[i] > score[j]) {
+                    temp= score[i];
+                    score[i] = score[j];
+                    score[j]= temp;
+                }
+            }
+        }
+
+        for (int i = 0; i < plus.length; i++) {
+            if(plus[i].contains(String.valueOf(score[2]))) {
+                String[] result = plus[i].split(" ");
+                System.out.println(result[0]);
+            }
+        }
+
+    }
+}
+
+```
+
++) 배열위치바꾸기(temp)
+
+![image](https://user-images.githubusercontent.com/78454649/220157905-9d5ba9cf-6c1f-48ed-84a7-dbf5ac5fc711.png)
+
+1. temp라는 빈 공간에 a를 넣는다 // int temp = a;
+2. a가 빠져나왔기에 그곳에 b를 넣는다(a값에 b를 복사하는 것) // a=b;
+3. b가 빠져나왔기에 빈 공간에 temp를 넣어준다 // b = temp;
+
+위에서는 a와 b가 빠져나왔다고 설명했지만 실제로는 값이 복사되는 것
+만약 3번의 과정이 없다면 a=10, b=10 이 된다
+
+```java
+
+import java.util.Arrays;
+
+public class Test {
+    public static void main(String[] args) {
+
+        int[] arr = {1,2,3};
+
+        int temp = 0;
+
+        temp = arr[0];
+        arr[0] = arr[2]; // 만약 아래코드가 주석이라면 [3, 2, 3]
+        arr[2] = temp; // 만약 옆의 코드가 주석이 아니라면 [3, 2, 1]
+
+        System.out.println(Arrays.toString(arr));
 
 
+    }
+}
+
+```
 
 
+<br/>
 
+---
 
-
-
+<br/>
 
 
 
