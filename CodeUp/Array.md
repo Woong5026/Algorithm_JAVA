@@ -300,6 +300,127 @@ public class Main {
 
 for문에서 출력시 i값을 1로주고 arr[i-1]을 한 이유는 i가 0일때 6 % 0 == 0 을 만족하므로 하기에 i를 1로 주었다
 
+<br/>
+
+---
+
+<br/>
+
+### 2차원 배열
+
+<br/>
+
+### 1425
+
+![image](https://user-images.githubusercontent.com/78454649/220412359-c21eedd8-c460-4fd6-add0-e454f39877ee.png)
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int[][] arr = new int[n][n];
+
+        int cnt = 1;
+
+        for (int i = 0; i < arr.length; i++){
+            for (int j = 0; j < arr.length; j++){
+                arr[i][j] = cnt++;
+            }
+        }
+
+        int[][] rev = new int[n][n];
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                rev[i][j] = arr[i][n-j-1];
+            }
+        }
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                System.out.print(rev[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+```
+
++) 2차원 배열 회전
+
+```java
+
+// 시게방향으로 90도 회전, 오른쪽으로 90도 회전
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                B[i][j] = A[n-j-1][i];
+            }
+        }
+
+// 반시계 방향으로 90도 회전, 270도, -90도, 왼쪽으로 90도
+
+       for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                B[i][j] = A[j][n-i-1];
+            }
+        }
+        
+// 위, 아래로 뒤집기
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                B[i][j] = A[n-i-1][j];
+            }
+        }
+        
+        
+// 좌우로 뒤집기 회전
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                B[i][j] = A[i][n-j-1];
+            }
+        }
+
+
+```
+
+정리를 하긴 했지만 사실 배열을 뒤집을 때는 
+
+```java
+
+for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                rev[i][j] = arr[i][n-j-1];
+            }
+        }
+
+```
+
+위 코드에서 볼 수 있듯이 새로운 배열에 기존 배열을 하나씩 넣는 방식인데
+새로운 배열을 통해 나온 출력값을 보고 기존 배열에서 어떤 수가 들어 갈지를 고민한다면 보다 쉽게 풀 수 있을 것이다.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
