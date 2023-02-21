@@ -253,9 +253,52 @@ public class Test {
 
 <br/>
 
+### 1425
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/220278468-94cfbee3-a45c-4e6b-8ff1-130070ad4859.png)
+
+<br/>
 
 
+```java
 
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        for (int i = 0; i < arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+
+        Arrays.sort(arr);
+
+        for (int i = 1; i <= n; i++){
+
+            System.out.print(arr[i-1] + " ");
+
+            if(i % m == 0){
+                System.out.println();
+            }
+
+        }
+
+    }
+}
+
+```
+
+for문에서 출력시 i값을 1로주고 arr[i-1]을 한 이유는 i가 0일때 6 % 0 == 0 을 만족하므로 하기에 i를 1로 주었다
 
 
 
