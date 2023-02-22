@@ -310,7 +310,7 @@ for문에서 출력시 i값을 1로주고 arr[i-1]을 한 이유는 i가 0일때
 
 <br/>
 
-### 1425
+### 1460
 
 ![image](https://user-images.githubusercontent.com/78454649/220412359-c21eedd8-c460-4fd6-add0-e454f39877ee.png)
 
@@ -410,14 +410,128 @@ for (int i = 0; i < n; i++){
 위 코드에서 볼 수 있듯이 새로운 배열에 기존 배열을 하나씩 넣는 방식인데
 새로운 배열을 통해 나온 출력값을 보고 기존 배열에서 어떤 수가 들어 갈지를 고민한다면 보다 쉽게 풀 수 있을 것이다.
 
+<br/>
+
+---
 
 
+<br/>
+
+### 1465
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/220606454-e9764e0a-23b1-4d64-9ff0-1b331aafa803.png)
 
 
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        int cnt = 1;
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < m; j++){
+                arr[i][j] = cnt++;
+            }
+        }
+
+        int[][] rev = new int[n][m];
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < m; j++){
+                rev[i][j] = arr[n-i-1][j];// 1,2
+            }
+        }
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < m; j++){
+                System.out.print(rev[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+``
+
+<br/>
+
+---
 
 
+<br/>
+
+### 1468
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/220606617-20c2fb91-b36e-4dc7-8b38-c2dc08fb5ae9.png)
+
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int[][] arr = new int[n][n];
+
+        int cnt = 1;
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                arr[i][j] = cnt++;
+            }
+        }
+
+        int[][] rev = new int[n][n];
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+
+                if (i % 2 == 0){
+                    rev[i][j] = arr[i][j];
+                }
+                else {
+                    rev[i][j] = arr[i][n-j-1];
+                }
 
 
+            }
+        }
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                System.out.print(rev[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+
+```
 
 
 
