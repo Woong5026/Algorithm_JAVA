@@ -533,6 +533,75 @@ public class Main {
 
 ```
 
+<br/>
+
+---
+
+
+<br/>
+
+### 달팽이
+
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int[][] arr = new int[n][n];
+
+        int right = -1; // 열
+        int bottom = 0; // 행
+        int k = 1; // 배열에 저장되는 값
+        int top = 1; // 행열을 바꿔주는 수(방향의 반전)
+        int print = n; // 한 줄마다 입력될 값의 수
+
+        for (int i = 0; i < n; i--){
+            for (int j = 0; j < print; j++){
+                right += top;
+                arr[bottom][right] = k;
+                k++;
+            }
+            print--;
+            
+            for (int j = 0; j < print; j++){
+                bottom += top;
+                arr[bottom][right] = k;
+                k++;
+            }
+            top *= -1; // 값을 반전시켜 행열을 바꿔줄지 결정(방향의 반전)
+        }
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+
+```
+
+![image](https://user-images.githubusercontent.com/78454649/220853570-61542352-6b92-4e90-9346-23004ab0aecc.png)
+
+
+
+
+
+
+
+
+
 
 
 
