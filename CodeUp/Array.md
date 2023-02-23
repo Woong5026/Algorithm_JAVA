@@ -595,12 +595,143 @@ public class Main {
 ![image](https://user-images.githubusercontent.com/78454649/220853570-61542352-6b92-4e90-9346-23004ab0aecc.png)
 
 
+<br/>
+
+---
 
 
+<br/>
+
+### 1484
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/220899985-370fba66-e458-45dc-a396-29d7327f6368.png)
+
+<br/>
+
+달팽이를 활용한 문제이다 <br/>
+하지만 아래처럼 풀면 인텔리제이에서는 답이 나오긴 하지만 코드업에서는 시간초과가 난다
+
+```java
+
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        int right = -1; // 열
+        int bottom = 0; // 행
+        int k = 1; // 배열에 저장되는 값
+        int num = 1; // 행열을 바꿔주는 수
+        int cnt = n; // 한 줄마다 입력될 값의 수
+        int rcnt = m;
+
+        for (int i = 0; i < n; i--){
+            for (int j = 0; j < rcnt; j++){
+                right += num;
+                arr[bottom][right] = k;
+                k++;
+            }
+
+            rcnt--;
+            cnt--;
+
+            if(rcnt == 1){
+                rcnt = 0;
+            }
 
 
+            for (int j = 0; j < cnt; j++){
+                bottom += num;
+                arr[bottom][right] = k;
+                k++;
+            }
+            num *= -1; // 값을 반전시켜 행열을 바꿔줄지 결정
 
+            if(cnt == 1){
+                cnt = 0;
+            }
 
+        }
+
+//        System.out.println(Arrays.toString(arr));
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < m; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+```
+
+<br/>
+
+그렇기에 아래처럼 풀어보았다
+
+```java
+
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        int right = -1; // 열
+        int bottom = 0; // 행
+        int k = 1; // 배열에 저장되는 값
+        int num = 1; // 행열을 바꿔주는 수
+        int cnt = n; // 한 줄마다 입력될 값의 수
+        int rcnt = m;
+
+        while (true){
+            for (int j = 0; j < m; j++){
+                right += num;
+                arr[bottom][right] = k;
+                k++;
+            }
+
+            n--;
+            m--;
+
+            for (int j = 0; j < n; j++){
+                bottom += num;
+                arr[bottom][right] = k;
+                k++;
+            }
+            num *= -1;
+
+            if(n<=0||m<=0) break; //while 탈출조건
+        }
+
+        for (int i = 0; i < cnt; i++){
+            for (int j = 0; j < rcnt; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+```
 
 
 
