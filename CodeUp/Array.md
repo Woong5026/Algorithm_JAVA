@@ -733,10 +733,281 @@ public class Test {
 
 ```
 
+<br/>
+
+---
 
 
+<br/>
+
+### 1485
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/221156873-fdfc2ffa-a74d-4c81-b7cc-83f4d144ff6b.png)
+
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        int right = -1; // 열
+        int bottom = 0; // 행
+        int k = n*m; // 배열에 저장되는 값
+        int num = 1; // 행열을 바꿔주는 수
+        int cnt = n; // 한 줄마다 입력될 값의 수
+        int rcnt = m;
+
+        while (true){
+            for (int j = 0; j < m; j++){
+                right += num;
+                arr[bottom][right] = k;
+                k--;
+            }
+
+            n--;
+            m--;
+
+            for (int j = 0; j < n; j++){
+                bottom += num;
+                arr[bottom][right] = k;
+                k--;
+            }
+            num *= -1;
+
+            if(n<=0||m<=0) break; //while 탈출조건
+        }
+
+        for (int i = 0; i < cnt; i++){
+            for (int j = 0; j < rcnt; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
 
 
+```
+
+<br/>
+
+---
 
 
+<br/>
 
+### 1486
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/221157073-41efe2d0-19f2-44db-8ed3-efa1c46bf25d.png)
+
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        int right = m-1; // 열
+        int bottom = -1; // 행
+        int k = 1; // 배열에 저장되는 값
+        int num = 1; // 행열을 바꿔주는 수
+        int cnt = n; // 한 줄마다 입력될 값의 수
+        int rcnt = m;
+
+        while (true){
+
+            for (int j = 0; j < n; j++){
+                bottom += num;
+                arr[bottom][right] = k;
+                k++;
+            }
+            n--;
+            m--;
+
+            num *= -1;
+
+            for (int j = 0; j < m; j++){
+                right += num;
+                arr[bottom][right] = k;
+                k++;
+            }
+
+            if(n<=0||m<=0) break; //while 탈출조건
+        }
+
+        for (int i = 0; i < cnt; i++){
+            for (int j = 0; j < rcnt; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+```
+
+<br/>
+
+---
+
+
+<br/>
+
+### 1487
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/221157291-b88d3955-d101-4133-a1fb-49ee7e187cbf.png)
+
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        int right = m-1; // 열
+        int bottom = -1; // 행
+        int k = n*m; // 배열에 저장되는 값
+        int num = 1; // 행열을 바꿔주는 수
+        int cnt = n; // 한 줄마다 입력될 값의 수
+        int rcnt = m;
+
+        while (true){
+
+            for (int j = 0; j < n; j++){
+                bottom += num;
+                arr[bottom][right] = k;
+                k--;
+            }
+
+            num *= -1;
+
+            n--;
+            m--;
+
+            for (int j = 0; j < m; j++){
+                right += num;
+                arr[bottom][right] = k;
+                k--;
+            }
+
+            if(n<=0||m<=0) break; //while 탈출조건
+        }
+
+        for (int i = 0; i < cnt; i++){
+            for (int j = 0; j < rcnt; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+
+```
+
+<br/>
+
+---
+
+
+<br/>
+
+### 1488
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/221157426-7d335494-c1be-4f65-bd1d-0fe859169baa.png)
+
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        int right = m; // 열
+        int bottom = n-1; // 행
+        int k = 1; // 배열에 저장되는 값
+        int num = 1; // 행열을 바꿔주는 수
+        int cnt = n; // 한 줄마다 입력될 값의 수
+        int rcnt = m;
+
+        while (true){
+
+            num *= -1;
+
+            for (int j = 0; j < m; j++){
+                right += num;
+                arr[bottom][right] = k;
+                k++;
+            }
+
+            n--;
+            m--;
+
+            for (int j = 0; j < n; j++){
+                bottom += num;
+                arr[bottom][right] = k;
+                k++;
+            }
+
+            if(n<=0||m<=0) break; //while 탈출조건
+        }
+
+        for (int i = 0; i < cnt; i++){
+            for (int j = 0; j < rcnt; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+```
