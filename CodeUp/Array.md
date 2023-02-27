@@ -1011,3 +1011,45 @@ public class Main {
 }
 
 ```
+
+<br/>
+
+---
+
+
+<br/>
+
+### 1508
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/221586541-c7ef84e6-0762-4238-b128-e9fef119e03c.png)
+
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		int[][] b = new int[51][51];
+		for (int i = 0; i < a; i++) {
+			b[i][0] =sc.nextInt();
+			for (int j = 1; j <= i; j++) {
+				b[i][j] = (b[i][j-1])-(b[i-1][j-1]);
+			}
+		}
+		for (int i = 0; i < a; i++) {
+			for (int j = 0; j <= i; j++) {
+				System.out.print(b[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+```
