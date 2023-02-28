@@ -1053,3 +1053,68 @@ public class Main {
 }
 
 ```
+
+<br/>
+
+---
+
+
+<br/>
+
+### 1509
+
+<br/>
+
+![image](https://user-images.githubusercontent.com/78454649/221858318-3f9b86f1-aa1e-4046-973f-a9e90e58e068.png)
+
+<br/>
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+//        int n = sc.nextInt();
+
+        int[][] arr = new int[11][10];
+
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 10; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+
+        }
+
+        int cnt = 0;
+
+        for (int i = 0; i < 10; i++){
+            for (int j = 9; j >= 0; j--){
+            if (arr[10][i] == 1){
+
+
+                    if (arr[j][i] > 0){
+                        System.out.println((i + 1) + " " + "crash");
+                        break;
+                    }else if (arr[j][i] < 0){
+                        System.out.println(i + 1 + " " + "fall");
+                        break;
+                    }else if(arr[j][i] == 0) {
+                        //j가 0까지 무사히 다다르고 0일 경우 safe
+                        if(j == 0) {
+                            System.out.println((i+1) + " safe");
+                        }
+                    }
+
+                }
+            }
+
+        }
+    }
+}
+
+```
+
